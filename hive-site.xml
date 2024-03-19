@@ -88,5 +88,9 @@
 		<name>hive.stats.autogather</name>
 		<value>false</value>
 	</property>
+    <property>
+        <name>mapreduce.job.counters.max</name>
+        <value>1024</value>
+    </property>
 
 </configuration>

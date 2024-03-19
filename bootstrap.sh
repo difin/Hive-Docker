@@ -43,8 +43,8 @@ echo 'export TEZ_CONF_DIR="/hive/conf/"' >> ~/.bashrc
 rm /hadoop
 ln -sf /hadoop-3.3.6 /hadoop
 
-ln -sf /apache-hive-4.0.0-beta-2-SNAPSHOT-bin /hive
-ln -sf /apache-tez-0.10.2-bin /tez
+ln -sf /apache-hive-4.1.0-SNAPSHOT-bin /hive
+ln -sf /apache-tez-0.10.3-bin /tez
 
 cp /conf/core-site.xml /hadoop/etc/hadoop
 cp /conf/hdfs-site.xml /hadoop/etc/hadoop
@@ -85,7 +85,7 @@ jps
 
 
 gprn "Set up metastore DB"
-hive/bin/schematool -userName hive -passWord 'hive' -dbType mysql  -initSchemaTo 4.0.0-beta-2
+hive/bin/schematool -userName hive -passWord 'hive' -dbType mysql  -initSchemaTo 4.1.0
 
 gprn "Start HMS server"
 hive/bin/hive --service metastore  -p  10000 &
@@ -101,6 +101,6 @@ gprn "Start HiveServer2"
 #To attach a debugger use --debug as follows. The remote debugger can be attached on port 8000.
 #hive/bin/hive --service hiveserver2 --debug --hiveconf hive.server2.thrift.port=10001 --hiveconf hive.execution.engine=mr
 
-hive/bin/hive --service hiveserver2  --hiveconf hive.server2.thrift.port=10001 --hiveconf hive.execution.engine=tez
+hive/bin/hive --service hiveserver2  --debug --hiveconf hive.server2.thrift.port=10001 --hiveconf hive.execution.engine=tez
 
 sleep 20000
