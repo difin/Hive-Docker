@@ -93,4 +93,26 @@
         <value>1024</value>
     </property>
 
+    <!-- ACID -->
+
+    <property>
+        <name>hive.compactor.worker.threads</name>
+        <value>4</value>
+    </property>
+
+    <property>
+        <name>metastore.compactor.worker.threads</name>
+        <value>4</value>
+    </property>
+
+    <property>
+        <name>hive.compactor.crud.query.based</name>
+        <value>true</value>
+    </property>
+
+    <property>
+        <name>hive.metastore.runworker.in</name>
+        <value>hs2</value>
+    </property>
+    
 </configuration>
